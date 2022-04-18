@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+  </head>
+  <body>
+
+    <div class="game-box">
+      <h1 class="title">숫자를 골라주세요!</h1>
+      <p class="sub-text">1 이상 20이하 내의 범위의 숫자를 골라주세요.</p>
+      <p class="sub-text__chance">총 <span class="chance-number"></span>번의 기회가 있습니다.</p>
+
+      <br />
+    
+      <div class="result-hidden">
+      <form class="user-answer"></form>
+      
+          <input class="user-answer__input" type ="number" placeholder="숫자를 입력"/>
+          <button class="user-answer__btn" type="submit">확인</button>
+        </form>
+
+      </div>
+
+      <div class="game-result"></div>
+      <p class="game-result__lose"></p>
+    
+<div class="chance-alret">
+    <p class="chance-alret">총 <span class="game-result__chance"></span>번의 기회가 남았습니다.</p>
+
+</div>
+
+
+      <p class="game-result__win"></p>
+      <div class="hidden"> <p class="sub-replay">게임을 다시 시작하시겠습니까?</p>
+      <button class="play-button">replay!</button></div>
+    </div>
+
+    
+
+    <script src="play.js"></script>
+  </body>
+</html>

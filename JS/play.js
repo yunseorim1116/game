@@ -9,6 +9,7 @@ const playButton = document.querySelector(".play-button");
 
 const userNumberArr = [];
 const finishNumber = 10;
+let count = 10;
 const chaceNumber = document.querySelector(".chance-number");
 const gameChaceNumber = document.querySelector(".game-result__chance");
 
@@ -19,12 +20,10 @@ const resultWin = document.querySelector(".game-result__win"); //이겼을때 �
 
 const hiddenBox = document.querySelector(".result-hidden"); //결과창 숨김박스
 
-
-
 userInput.addEventListener("keydown", gameInit);
 
 chaceNumber.innerText = finishNumber;
-gameChaceNumber.innerText = finishNumber;
+gameChaceNumber.innerText = count;
 
 console.log(comNumber);
 function gameInit(e) {
@@ -46,14 +45,15 @@ function gameStart() {
     userInput.focus();
   } else {
     hint();
-    userNumberArr.push(Number(userInput.value));
-    gameChaceNumber.innerText = finishNumber - userNumberArr.length; //남은 횟수 보여주기
+    count--;
+
+    gameChaceNumber.innerText = count; //남은 횟수 보여주기
   }
 
   if (comNumber == userInput.value) {
     //점수를 맞혔을때
     gameFinWin();
-  } else if (gameChaceNumber.innerText == 0 && comNumber !== userInput.value) {
+  } else if (count == 0 && comNumber !== userInput.value) {
     //횟수 다 소진했을때
     gameFinLose();
   }

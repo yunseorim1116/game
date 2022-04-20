@@ -1,3 +1,7 @@
+document.addEventListener("DOMContentLoaded", () => {
+  new TypeIt("#title", {}).go();
+});
+
 const playNumber = 4;
 
 let set = new Set();
@@ -12,6 +16,7 @@ let strike = 0;
 let ball = 0;
 let out = 0;
 let outCheck = false;
+let gameSwitch = false;
 
 const userNumber = document.querySelector(".user-number");
 const inputValBtn = document.querySelector(".inputval-btn");
@@ -22,6 +27,7 @@ let ballHTML = document.querySelector(".ball");
 let outHTML = document.querySelector(".out");
 const userInput = document.querySelector(".user-input");
 const userNum = document.querySelector(".show-user-num");
+const comNumAlert = document.querySelector(".com-num-alret");
 
 userChanceText.innerText = chanceNumber - count;
 
@@ -36,28 +42,47 @@ function valSubmit(e) {
 }
 
 function compareNumber() {
-  if (userNumber.value.length !== 4) {
+  const userGuessNumber = userNumber.value;
+  const set = new Set(userGuessNumber.split(""));
+  if (userGuessNumber.length !== 4) {
+    //네자리 아니면 안됨 / 유효성 검증
     alert("숫자 네자리를 입력해주세요!");
     userNumber.value = "";
     return;
+  } else if (set.size !== 4) {
+    //유저가 입력하는 중복숫자 막아주기
+    alert("중복된 숫자는 안돼요!");
+    userNumber.value = "";
+    return;
   } else {
-    //찐 로직 시작
+    //유효성 검증 완료, 찐 로직 시작
     count++;
-    const userGuessNumber = userNumber.value;
+
     userChanceText.innerText = chanceNumber - count;
     userNumber.value = "";
     userNumber.focus();
 
-    if (count == 10) {
-      document.querySelector(".game-lose").classList.remove("hidden");
-      document.querySelector(".game-hint-box").classList.add("hidden");
-      userInput.classList.add("hidden");
-    }
     whatisComNumber(userGuessNumber);
   }
 
+  
   function whatisComNumber(userGuessNumber) {
     outCheck = false;
+    repit(userGuessNumber);
+    makeUserNumHtml(userGuessNumber);
+    gameHint(userGuessNumber);
+
+    if (count == 10) {
+      gameSwitch = true;
+      document.querySelector(".game-lose").classList.remove("hidden");
+      document.querySelector(".game-hint-box").classList.add("hidden");
+      userInput.classList.add("hidden");
+      makeUserNumHtml(randNumArr);
+    }
+  }
+
+  function repit(userGuessNumber) {
+    
     for (let i = 0; i < 4; i++) {
       if (randNumArr[i] == userGuessNumber[i]) {
         strike++;
@@ -69,22 +94,35 @@ function compareNumber() {
         }
       }
     }
-
-    makeUserNumHtml(userGuessNumber);
-    gameHint(userGuessNumber);
   }
 
-  function makeUserNumHtml(userGuessNumber) {
+  function makeUserNumHtml(arr) {
+    console.log(arr);
     const divAllBox = document.createElement("div");
     divAllBox.classList.add("userNumAllbox");
-    divAllBox.id = `userChoice${count}`;
-    for (let x of userGuessNumber) {
-      const divBox = document.createElement("div");
-      divBox.classList.add("userNumbox");
 
-      divBox.innerText = x;
-      divAllBox.appendChild(divBox);
-      userNum.insertBefore(divAllBox, userNum.firstChild); //맨 앞에 삽입
+    divAllBox.id = `userChoice${count}`;
+    for (let x of arr) {
+      if (gameSwitch) {
+        const divBox = document.createElement("div");
+        divBox.classList.add("userNumbox");
+        divBox.innerText = x;
+        divAllBox.appendChild(divBox);
+        divBox.style.backgroundColor = "rgb(18, 199, 18)";
+        divAllBox.classList.remove("userNumAllbox");
+        divAllBox.classList.add("userNumAllbox2");
+        comNumAlert.classList.remove("hidden");
+        comNumAlert.appendChild(divAllBox);
+        document.getElementById("chance").innerText =
+          "컴푸타에게 패배하였습니다.";
+      } else {
+        const divBox = document.createElement("div");
+        divBox.classList.add("userNumbox");
+
+        divBox.innerText = x;
+        divAllBox.appendChild(divBox);
+        userNum.insertBefore(divAllBox, userNum.firstChild); //맨 앞에 삽입
+      }
     }
   }
 
@@ -99,19 +137,18 @@ function compareNumber() {
       }
     });
 
-    console.log(outCheck);
     !outCheck
       ? outHTML.classList.remove("hidden")
       : outHTML.classList.add("hidden");
 
     if (strike == playNumber) {
-      const changeColorGreen = document.querySelectorAll(".userNumbox");
-      changeColorGreen.forEach((ele) => {
-        ele.style.backgroundColor = "green";
+      console.log(strike);
+      const changeColorGreen = document.getElementById(`userChoice${count}`);
+      const outBox = changeColorGreen.childNodes;
+      outBox.forEach((ele) => {
+        ele.style.backgroundColor = "rgb(18, 199, 18)";
       });
 
-      homeruneHTML = "HomeRun ~!!";
-      userChanceText.innerText = "0";
       document.querySelector(".game-win").classList.remove("hidden");
       document.querySelector(".game-hint-box").classList.add("hidden");
       userInput.classList.add("hidden");
@@ -122,7 +159,7 @@ function compareNumber() {
       const changeColorRed = document.getElementById(`userChoice${count}`);
       const outBox = changeColorRed.childNodes;
       outBox.forEach((ele) => {
-        ele.style.backgroundColor = "rgb(255, 75, 75)";
+        ele.style.backgroundColor = "rgb(35, 163, 35)";
       });
     } else {
       strikeHTML.innerText = `${strike} 스트라이크`;

@@ -1,0 +1,32 @@
+.hidden {
+  display: none;
+}
+body {
+  background-color: rgb(153, 153, 153);
+}
+.content-box {
+  border-radius: 8px;
+  margin-left: 200px;
+  margin-right: 200px;
+  padding: 35px;
+  background-color: white;
+  align-items: center;
+  text-align: center;
+}
+
+.inputval-btn {
+  padding: 2px 8px;
+  font-size: 12px;
+  font-weight: 700;
+  outline: 0;
+  border: 0;
+  border-radius: 4px;
+  margin-left: 2px;
+  color: white;
+  background-color: rgb(65, 65, 65);
+}
+
+.user-input {
+  padding: 4px 12px;
+  margin-top: 13px;
+}

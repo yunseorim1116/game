@@ -8,10 +8,45 @@
     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
   </head>
   <body>
-    <h1>숫자야구게임</h1>
+    <div class="content-box">
 
-    <input class="user-number" type="Number" placeholder="예상숫자 네자리" /><button class="inputval-btn">등록</button>
 
-    <script src="test.js"></script>
+      <header>
+        <h1>숫자야구게임</h1>
+        <h3>예상숫자 네자리를 입력해주세요.</h3>
+        <div>총 기회는 <span class="user-chance"></span>번 남았습니다.</div>
+      </header>
+
+      <section>
+        <div class="user-input">
+          <input
+            class="user-number"
+            type="Number"
+            placeholder="예상숫자 네자리"
+          /><button class="inputval-btn">등록</button>
+        </div>
+
+        <div class="game-hint-box">
+          <p class="strike"></p>
+          <p class="ball"></p>
+          <p class="out"></p>
+          <p class="homerun"></p>
+        </div>
+
+        <div
+
+        <div class="game-result-box">
+          <p class="com-num-alret hidden">
+            컴퓨터 숫자는 <span class="com-number"></span>입니다.
+          </p>
+          <p class="game-win hidden">게임에서 승리하셨습니다.</p>
+          <p class="game-lose hidden">게임에서 패배하셨습니다.</p>
+        </div>
+      </section>
+
+
+    </div>
+
+    <script src="test2.js"></script>
   </body>
 </html>

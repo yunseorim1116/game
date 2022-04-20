@@ -1,5 +1,5 @@
 const playNumber = 4;
-const chanceNumber = 10;
+let chanceNumber = 10;
 let randNumArr = [0, 0, 0, 0];
 let userArr = [];
 let count = 0;
@@ -10,6 +10,13 @@ let out = 0;
 
 const userNumber = document.querySelector(".user-number");
 const inputValBtn = document.querySelector(".inputval-btn");
+const userChanceText = document.querySelector(".user-chance");
+let homeruneHTML = document.querySelector(".homerun");
+let strikeHTML = document.querySelector(".strike");
+let ballHTML = document.querySelector(".ball");
+let outHTML = document.querySelector(".out");
+const userInput = document.querySelector(".user-input");
+
 makeRandomNumber();
 
 function makeRandomNumber() {
@@ -32,6 +39,8 @@ function ovelapRemove() {
 //===============================랜덤숫자 받는 코드
 console.log(randNumArr);
 
+userChanceText.innerText = chanceNumber - count;
+
 userNumber.addEventListener("keydown", valSubmit);
 
 function valSubmit(e) {
@@ -50,25 +59,20 @@ function compareNumber() {
   } else {
     //찐 로직 시작
     count++;
-    userArr.push(userNumber.value); // 몰라 일단 배열에 담아 지울수도 있음
     const userGuessNumber = userNumber.value;
-    if (count == chanceNumber) {
-      console.log("게임을 종료합니다 .. 졋어요 ㅜ");
+    userChanceText.innerText = chanceNumber - count;
+    userNumber.value = "";
+    userNumber.focus();
+
+
+    if (count == 10) {
+      document.querySelector(".game-lose").classList.remove("hidden");
+      document.querySelector(".game-hint-box").classList.add("hidden");
     }
     whatisComNumber(userGuessNumber);
   }
 
   function whatisComNumber(userGuessNumber) {
-    if (userGuessNumber == randNumArr.join("")) {
-      console.log("홈런~");
-      return;
-    } else if (userGuessNumber !== randNumArr.join("")) {
-      out++;
-      console.log(out + "아웃");
-    }
-
-    //1234 1334
-
     for (let i = 0; i < 4; i++) {
       if (randNumArr[i] == userGuessNumber[i]) {
         strike++;
@@ -80,13 +84,24 @@ function compareNumber() {
         }
       }
     }
-    console.log("스트라이크" + strike);
-    console.log("볼" + ball);
-    strike = 0;
-    ball = 0;
+
+    gameHint();
+  }
+
+  function gameHint() {
+    if (strike == playNumber) {
+      homeruneHTML = "HomeRun ~!!";
+      userChanceText.innerText = "0";
+      document.querySelector(".game-win").classList.remove("hidden");
+      userInput.classList.add("hidden");
+
+      return;
+    } else {
+      strikeHTML.innerText = `${strike}스트라이크`;
+      ballHTML.innerText = `${ball}볼`;
+
+      strike = 0;
+      ball = 0;
+    }
   }
 }
-
-// function gameWin() {}
-
-// function gameLose() {}

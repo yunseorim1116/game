@@ -17,6 +17,8 @@ let ball = 0;
 let out = 0;
 let outCheck = false;
 let gameSwitch = false;
+let strikeBol = false;
+let ballBol = false;
 
 const userNumber = document.querySelector(".user-number");
 const inputValBtn = document.querySelector(".inputval-btn");
@@ -65,12 +67,11 @@ function compareNumber() {
     whatisComNumber(userGuessNumber);
   }
 
-  
   function whatisComNumber(userGuessNumber) {
     outCheck = false;
-    repit(userGuessNumber);
-    makeUserNumHtml(userGuessNumber);
-    gameHint(userGuessNumber);
+    repit(userGuessNumber); //스트라이크,볼 갯수 검사하고
+    makeUserNumHtml(userGuessNumber); //그걸 토대로 div박스만들어주고
+    gameHint(userGuessNumber); //홈런,스트라이크 체크
 
     if (count == 10) {
       gameSwitch = true;
@@ -81,29 +82,36 @@ function compareNumber() {
     }
   }
 
-  function repit(userGuessNumber) {
-    
+  function repit(userGuessNumber, newArr) {
+    console.log(userGuessNumber);
+
     for (let i = 0; i < 4; i++) {
       if (randNumArr[i] == userGuessNumber[i]) {
         strike++;
+        if (strikeBol) {
+          console.log(newArr);
+        }
       }
 
       for (let j = 0; j < 4; j++) {
         if (randNumArr[i] == userGuessNumber[j]) {
           ball++;
+          if (ballBol) {
+            console.log(newArr);
+          }
         }
       }
     }
   }
 
   function makeUserNumHtml(arr) {
-    console.log(arr);
     const divAllBox = document.createElement("div");
     divAllBox.classList.add("userNumAllbox");
 
     divAllBox.id = `userChoice${count}`;
     for (let x of arr) {
       if (gameSwitch) {
+        console.log(gameSwitch);
         const divBox = document.createElement("div");
         divBox.classList.add("userNumbox");
         divBox.innerText = x;
@@ -121,6 +129,9 @@ function compareNumber() {
 
         divBox.innerText = x;
         divAllBox.appendChild(divBox);
+
+        //////////////////////
+
         userNum.insertBefore(divAllBox, userNum.firstChild); //맨 앞에 삽입
       }
     }
@@ -141,7 +152,8 @@ function compareNumber() {
       ? outHTML.classList.remove("hidden")
       : outHTML.classList.add("hidden");
 
-    if (strike == playNumber) {
+    if (strike == playNumber && outCheck) {
+      //자꾸 아웃일떄도 초로기가 떠...
       console.log(strike);
       const changeColorGreen = document.getElementById(`userChoice${count}`);
       const outBox = changeColorGreen.childNodes;
@@ -165,6 +177,17 @@ function compareNumber() {
       strikeHTML.innerText = `${strike} 스트라이크`;
       ballHTML.innerText = `${ball} 볼`;
 
+      const newArr = userGuessNumber.split("");
+    
+
+      strikeBol = true;
+      ballBol = true;
+
+      repit(userGuessNumber, newArr);
+
+      //초기화
+      strikeBol = false;
+      ballBol = false;
       strike = 0;
       ball = 0;
     }

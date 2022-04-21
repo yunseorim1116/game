@@ -5,13 +5,53 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>Page Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://unpkg.com/typeit@8.4.0/dist/index.umd.js"></script>
     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
   </head>
   <body>
-    <h1>숫자야구게임</h1>
+    <div class="content-box">
+      <header>
+        <h1 id="title">숫자야구게임</h1>
+        <h3>예상숫자 네자리를 입력해주세요.</h3>
+        <div id="chance">
+          총 기회는 <span class="user-chance"></span>번 남았습니다.
+        </div>
+      </header>
 
-    <input class="user-number" type="Number" placeholder="예상숫자 네자리" /><button class="inputval-btn">등록</button>
+      <section>
+        <div class="user-input">
+          <input
+            class="user-number"
+            type="Number"
+            placeholder="예상숫자 네자리"
+          /><button class="inputval-btn">등록</button>
+        </div>
+        <div class="game-result-box">
+          <p class="game-win hidden">HomeRun~!! 게임에서 승리하셨습니다!</p>
+        
+          <div>
+          <p class="com-num-alret hidden">
+            <span class="test">컴퓨터 숫자</span>
+          </p> <span class="com-num-alret hidden">입니다.<span
+            <p class="game-lose hidden">게임에서 패배하셨습니다.</p>
+          
+            <p class="show-com-number"></p>
+          </div>
+        </div>
 
-    <script src="test.js"></script>
+        <div class="game-hint-box">
+          <p class="strike"></p>
+          <p class="ball"></p>
+          <p class="out hidden">out!</p>
+          <p class="homerun"></p>
+        </div>
+
+        <div class="show-user-num"></div>
+
+        <div
+      </section>
+    </div>
+
+    <script src="test2.js"></script>
   </body>
 </html>

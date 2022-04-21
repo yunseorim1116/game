@@ -1,0 +1,146 @@
+.hidden {
+  display: none;
+}
+
+:root {
+  --ti-cursor-margin-left: 0.2em;
+}
+body {
+  background: linear-gradient(to left, rgb(160, 173, 216), rgb(83, 173, 247));
+}
+.content-box {
+  margin-top: 7.8947vw;
+  border-radius: 4px;
+  margin-left: 13.1579vw;
+  margin-right: 13.1579vw;
+  padding: 35px;
+  background-color: white;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0px 0px 20px rgb(70, 70, 70);
+}
+
+.inputval-btn {
+  cursor: pointer;
+  padding: 4px 8px;
+  font-size: 12px;
+  font-weight: 700;
+  outline: 0;
+  border: 0;
+  border-radius: 4px;
+  margin-left: 8px;
+  color: white;
+  background-color: rgb(255, 88, 88);
+  box-shadow: 0px 0px 4px rgb(243, 64, 64);
+}
+
+.user-input {
+  padding: 4px 12px;
+  margin-top: 13px;
+}
+
+.userNumbox {
+  box-shadow: 0px 0px 4px rgb(121, 121, 121);
+  border-radius: 50px;
+
+  background-color: rgb(255 71 71);
+  color: white;
+  margin: 4px;
+  width: 3.4722vw;
+  height: 3.4722vw;
+  line-height: 50px;
+  text-align: center;
+}
+
+.show-user-num {
+  display: block;
+}
+
+.userNumAllbox {
+  display: flex;
+  justify-content: center;
+  padding: 5px;
+}
+.game-hint-box {
+  font-weight: 700;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 100%, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translateZ(0);
+  }
+}
+.userNumbox:hover {
+  transform: scale(1.1);
+  transition: all 0.2s linear;
+}
+
+.game-result-box {
+  transform: scale(1.1);
+  transition: all 0.2s linear;
+  margin: 3.2895vw;
+  box-shadow: 0px 0px 4px rgb(121, 121, 121);
+  border-radius: 50px;
+}
+.userNumbox2 {
+  background-color: rgb(255, 95, 95);
+  color: white;
+  margin: 4px;
+  width: 3.2895vw;
+  height: 3.2895vw;
+  line-height: 50px;
+  text-align: center;
+}
+
+.userNumAllbox {
+  cursor: pointer;
+  position: relative;
+  animation: fadeInUp 1s;
+}
+
+.userNumAllbox2 {
+  transform: rotate(360deg); /* 360도 회전 */
+  transition-duration: 0.7s;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+}
+
+.user-number {
+  outline: none;
+  padding: 4px 12px;
+  background-color: rgb(226, 226, 226);
+  border-radius: 8px;
+}
+
+.ball-box {
+  background-color: rgb(245, 206, 78);
+}
+.strike-box {
+  background-color: rgb(18, 199, 18);
+}
+
+.out-box {
+  background-color: rgb(255, 125, 125);
+}
+
+.com-num-alret {
+  color: rgb(77, 77, 77);
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  padding: 2.7632vw;
+}
+
+.game-lose {
+  margin-top: 20px;
+}
+.game-win {
+  padding: 40px;
+}

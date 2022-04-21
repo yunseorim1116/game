@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9110297787597791"
+     crossorigin="anonymous"></script>
+    <title>Page Title</title>
+    <ins class="kakao_ad_area" style="display:none;" 
+ data-ad-unit    = "DAN-pq2KqM26fBxptxTl" 
+ data-ad-width   = "320" 
+ data-ad-height  = "100"></ins> 
+<script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta property="og:url" content="https://catleaps.netlify.app" />
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+
+  </head>
+  <body>
+    <div class="all-content">
+      <head>
+        <p class="line anim-typewriter">바람끼 측정 완료!</p>
+      </head>
+
+      <content>
+      
+
+        <div class="background">
+          <div class="img">
+            <img src="img/4.jpg" class="real-img">
+          </div>
+          <div class="result-content">
+            <h3>당신의 바람끼는 83.8%!</h3>
+            <p>삐뽀삐뽀!</p>
+           <p>당신은 괜찮을지 모르겠지만 당신의 애인은 당신을 감당하기 힘들 수도 있겠습니다! (੭ ˃̣̣̥᷄⌓˂̣̣̥᷅ )੭⁾⁾</p>
+            <p>하지만 살다보면 호의와 호감의 경계선이 애매할 수 있다는거!</p>
+            <p>과도한 친절은 오해를 부르기 쉽상이죠?</p>
+            <p>애인이 속상해 하지 않게 스스로 주의 하시길 바랍니다!</p>
+         
+            
+            <br />
+
+            <div class="share">친구한테 공유하기</div>
+
+            <div class="want-display">
+              <div><img src="img/icon-facebook.png" class="share-icon"id="facebook"></div>
+              <div><img src="img/icon-kakao.png" class="share-icon" id="kakao"></div>
+               <div><img src="img/icon-twitter.png" class="share-icon" id="twitter"></div>
+               </div>
+
+               <div class="replay-box"> 
+                <div class="replay">테스트 다시하러 가기</div>
+                <div><img src="img/replay.png" class="replay-icon"></div>
+               </div>
+          </div>
+        </div>
+      </content>
+
+      <footer>hhyjs2r@gmail.com</footer>
+    </div>
+    <script src="main.js"></script>
+    
+    <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+
+<script type="text/javascript">
+  // SDK를 초기화 합니다. 사용할 앱의 JavaScript 키를 설정해 주세요.
+  Kakao.init('62436aa462db605486b41a093edc2939');
+
+  // SDK 초기화 여부를 판단합니다.
+
+  const kakao = document.querySelector('#kakao');
+kakao.addEventListener('click',kakaoShare);
+  console.log(Kakao.isInitialized());
+
+  function kakaoShare() {
+    Kakao.Link.sendDefault({
+      objectType: 'feed',
+      content: {
+        title: '요즘 유행하는 깻잎 논쟁!',
+        description: '그럼 나는 어떤 사람일까?',
+        imageUrl: 'img/test.png',
+        link: {
+          mobileWebUrl: 'https://catleaps.netlify.app',
+          webUrl: 'https://catleaps.netlify.app',
+        },
+      },
+      buttons: [
+        {
+          title: '웹으로 보기',
+          link: {
+            mobileWebUrl: 'https://catleaps.netlify.app',
+            webUrl: 'https://catleaps.netlify.app',
+          },
+        },
+      ],
+      // 카카오톡 미설치 시 카카오톡 설치 경로이동
+      installTalk: true,
+    })
+  }
+</script>
+  </body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9110297787597791"
+     crossorigin="anonymous"></script>
+    <title>Page Title</title>
+    <ins class="kakao_ad_area" style="display:none;" 
+ data-ad-unit    = "DAN-pq2KqM26fBxptxTl" 
+ data-ad-width   = "320" 
+ data-ad-height  = "100"></ins> 
+<script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta property="og:url" content="https://catleaps.netlify.app" />
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+  </head>
+  <body>
+    <div class="all-content">
+      <head>
+        <head>
+          <p class="line anim-typewriter">바람끼 측정 완료!</p>
+        </head>
+      </head>
+
+      <content>
+        <div class="background">
+          <div class="img">
+            <img src="img/1.jpg" class="real-img" />
+          </div>
+          <div class="result-content">
+            <h3>당신의 바람끼는 0.001%!</h3>
+            <p>당신은 순정파 해바라기 입니다.</p>
+            <p>오직 애인밖에 모르고 애인에 죽고 사는 당신!</p>
+            <p>
+              이대로만 쭉 간다면 당신과 애인 사이에 별 다른 큰 문제는
+              없겠습니다!
+            </p>
+            <p>오히려 당신 같은 애인이 있으면 정말 행복하겠는걸요? ( ͡° ͜ʖ ͡°)</p>
+
+            <br />
+
+            <div class="share">친구한테 공유하기</div>
+
+           
+            <div class="want-display">
+              <div><img src="img/icon-facebook.png" class="share-icon"id="facebook"></div>
+              <div><img src="img/icon-kakao.png" class="share-icon" id="kakao"></div>
+               <div><img src="img/icon-twitter.png" class="share-icon" id="twitter"></div>
+               </div>
+
+
+               <div class="replay-box"> 
+               <div class="replay">테스트 다시하러 가기</div>
+               <div><img src="img/replay.png" class="replay-icon"></div>
+              </div>
+
+
+            
+          </div>
+        </div>
+      </content>
+
+      <footer>hhyjs2r@gmail.com</footer>
+    </div>
+    <script src="main.js"></script>
+
+    <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+
+<script type="text/javascript">
+  // SDK를 초기화 합니다. 사용할 앱의 JavaScript 키를 설정해 주세요.
+  Kakao.init('62436aa462db605486b41a093edc2939');
+
+  // SDK 초기화 여부를 판단합니다.
+
+  const kakao = document.querySelector('#kakao');
+kakao.addEventListener('click',kakaoShare);
+  console.log(Kakao.isInitialized());
+
+  function kakaoShare() {
+    Kakao.Link.sendDefault({
+      objectType: 'feed',
+      content: {
+        title: '요즘 유행하는 깻잎 논쟁!',
+        description: '그럼 나는 어떤 사람일까?',
+        imageUrl: 'img/test.png',
+        link: {
+          mobileWebUrl: 'https://catleaps.netlify.app',
+          webUrl: 'https://catleaps.netlify.app',
+        },
+      },
+      buttons: [
+        {
+          title: '웹으로 보기',
+          link: {
+            mobileWebUrl: 'https://catleaps.netlify.app',
+            webUrl: 'https://catleaps.netlify.app',
+          },
+        },
+      ],
+      // 카카오톡 미설치 시 카카오톡 설치 경로이동
+      installTalk: true,
+    })
+  }
+</script>
+  </body>
+</html>

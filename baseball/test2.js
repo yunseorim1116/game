@@ -87,9 +87,15 @@ function compareNumber() {
 
     for (let i = 0; i < 4; i++) {
       if (randNumArr[i] == userGuessNumber[i]) {
+        // console.log("randNumArr[i]" + i);
+        // console.log("userGuessNumber[i]" + i);
         strike++;
         if (strikeBol) {
-          console.log(newArr);
+          const strikeBox = document.getElementById(
+            `userChoice${count}`
+          ).childNodes;
+
+          strikeBox[i].classList.add("strike-box");
         }
       }
 
@@ -97,6 +103,13 @@ function compareNumber() {
         if (randNumArr[i] == userGuessNumber[j]) {
           ball++;
           if (ballBol) {
+            const ballBox = document.getElementById(
+              `userChoice${count}`
+            ).childNodes;
+
+            console.log(ballBox.className);
+            ballBox[j].classList.add("ball-box");
+
             console.log(newArr);
           }
         }
@@ -178,7 +191,6 @@ function compareNumber() {
       ballHTML.innerText = `${ball} 볼`;
 
       const newArr = userGuessNumber.split("");
-    
 
       strikeBol = true;
       ballBol = true;

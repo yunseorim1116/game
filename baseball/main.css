@@ -9,10 +9,10 @@ body {
   background: linear-gradient(to left, rgb(160, 173, 216), rgb(83, 173, 247));
 }
 .content-box {
-  margin-top: 120px;
+  margin-top: 7.8947vw;
   border-radius: 4px;
-  margin-left: 200px;
-  margin-right: 200px;
+  margin-left: 13.1579vw;
+  margin-right: 13.1579vw;
   padding: 35px;
   background-color: white;
   align-items: center;
@@ -43,11 +43,11 @@ body {
   box-shadow: 0px 0px 4px rgb(121, 121, 121);
   border-radius: 50px;
 
-  background-color: rgb(99, 99, 99);
+  background-color: rgb(255 71 71);
   color: white;
   margin: 4px;
-  width: 50px;
-  height: 50px;
+  width: 3.4722vw;
+  height: 3.4722vw;
   line-height: 50px;
   text-align: center;
 }
@@ -83,16 +83,16 @@ body {
 .game-result-box {
   transform: scale(1.1);
   transition: all 0.2s linear;
-  margin: 50px;
+  margin: 3.2895vw;
   box-shadow: 0px 0px 4px rgb(121, 121, 121);
   border-radius: 50px;
 }
 .userNumbox2 {
-  background-color: rgb(99, 99, 99);
+  background-color: rgb(255, 95, 95);
   color: white;
   margin: 4px;
-  width: 50px;
-  height: 50px;
+  width: 3.2895vw;
+  height: 3.2895vw;
   line-height: 50px;
   text-align: center;
 }
@@ -119,16 +119,15 @@ body {
   border-radius: 8px;
 }
 
-.strike-box {
-  background-color: green;
-}
-
 .ball-box {
-  background-color: yellow;
+  background-color: rgb(245, 206, 78);
+}
+.strike-box {
+  background-color: rgb(18, 199, 18);
 }
 
 .out-box {
-  background-color: red;
+  background-color: rgb(255, 125, 125);
 }
 
 .com-num-alret {
@@ -136,12 +135,12 @@ body {
   font-size: 18px;
   font-weight: 700;
   margin-bottom: 20px;
-  padding: 42px;
+  padding: 2.7632vw;
 }
 
 .game-lose {
   margin-top: 20px;
 }
 .game-win {
-  padding:40px;
+  padding: 40px;
 }

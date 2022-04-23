@@ -13,6 +13,8 @@ function makeRandomNumber() {
   ovelapRemove();
 }
 
+1123
+
 function ovelapRemove() {
   for (let i = 0; i < playNumber; i++) {
     for (let j = 0; j < playNumber; j++) {

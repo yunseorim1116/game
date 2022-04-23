@@ -43,6 +43,9 @@ function valSubmit(e) {
   }
 }
 
+4577
+4567
+
 function compareNumber() {
   const userGuessNumber = userNumber.value;
   const set = new Set(userGuessNumber.split(""));
